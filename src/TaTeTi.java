@@ -90,12 +90,10 @@ class LaminaPrincipal extends JPanel {
 				clickeado.setText("X");
 				clickeado.setBackground(Color.red);
 				clickeado.setEnabled(false);
-
 			}else {
 				clickeado.setText("O");
 				clickeado.setBackground(Color.blue);
 				clickeado.setEnabled(false);
-
 			}
 			turno++;
 			opciones--;
@@ -246,10 +244,11 @@ class LaminaPrincipal extends JPanel {
 		}
 		
 	}
-
 	String winner;
 	int turno;
 	int opciones;
+	int posicion_j1;
+	int posicion_j2;
 	JButton boton1,boton2,boton3,boton4,boton5,boton6,boton7,boton8,boton9,restart;
 	
 }
