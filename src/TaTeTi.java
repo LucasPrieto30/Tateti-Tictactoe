@@ -167,14 +167,3 @@ class LaminaPrincipal extends JPanel {
 	
 }
 
-class LaminaGameOver extends JPanel{
-	
-	public LaminaGameOver() {
-		
-		setBackground(Color.magenta);
-		JLabel gameover=new JLabel("GAME OVER");
-		add(gameover);
-		
-	}
-	
-}
