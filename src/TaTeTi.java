@@ -78,6 +78,10 @@ class LaminaPrincipal extends JPanel {
 		add(lamina_juego,BorderLayout.CENTER);
 		turno =0;
 		opciones=9;
+		seleccion_j1 =new JButton [5];
+		seleccion_j2 =new JButton [5];
+		posicion_j1=0;
+		posicion_j2=0;
 	}
 	
 	private class Seleccion implements ActionListener {
@@ -90,20 +94,106 @@ class LaminaPrincipal extends JPanel {
 				clickeado.setText("X");
 				clickeado.setBackground(Color.red);
 				clickeado.setEnabled(false);
+				seleccion_j1[posicion_j1]=clickeado;
+				posicion_j1++;
 			}else {
 				clickeado.setText("O");
 				clickeado.setBackground(Color.blue);
 				clickeado.setEnabled(false);
+				seleccion_j2[posicion_j2]=clickeado;
+				posicion_j2++;
 			}
 			turno++;
 			opciones--;
-			
-			if (opciones==0) {
-				boton5.setText("GAME OVER");
+			win();
+			if (win()) {
+				boton5.setText(winner);
+				gameOver();
+				restart.setEnabled(true);
+			}else if (opciones==0) {
+
+				gameOver();
 				restart.setEnabled(true);
 			}
 
 		}
+		
+		
+		public boolean win() {
+			
+			if (boton1.getText().equals("X") && boton2.getText().equals("X") && boton3.getText().equals("X")) {
+				winner="RED WINS";
+				return true;	
+			}else if(boton4.getText().equals("X") && boton5.getText().equals("X") && boton6.getText().equals("X")){
+				winner="RED WINS";
+				return true;
+			}else if(boton7.getText().equals("X") && boton8.getText().equals("X") && boton9.getText().equals("X")){
+				winner="RED WINS";
+				return true;
+			}else if(boton1.getText().equals("X") && boton4.getText().equals("X") && boton7.getText().equals("X")){
+				winner="RED WINS";
+				return true;
+			}else if(boton2.getText().equals("X") && boton5.getText().equals("X") && boton8.getText().equals("X")){
+				winner="RED WINS";
+				return true;
+			}else if(boton3.getText().equals("X") && boton6.getText().equals("X") && boton9.getText().equals("X")){
+				winner="RED WINS";
+				return true;
+			}else if(boton1.getText().equals("X") && boton5.getText().equals("X") && boton9.getText().equals("X")){
+				winner="RED WINS";
+				return true;
+			}else if(boton3.getText().equals("X") && boton5.getText().equals("X") && boton7.getText().equals("X")){
+				winner="RED WINS";
+				return true;
+			
+			}else if (boton1.getText().equals("O") && boton2.getText().equals("O") && boton3.getText().equals("O")) {
+				winner="BLUE WINS";
+				return true;
+			}else if(boton4.getText().equals("O") && boton5.getText().equals("O") && boton6.getText().equals("O")){
+				winner="BLUE WINS";
+				return true;
+			}else if(boton7.getText().equals("O") && boton8.getText().equals("O") && boton9.getText().equals("O")){
+				winner="BLUE WINS";
+				return true;
+			}else if(boton1.getText().equals("O") && boton4.getText().equals("O") && boton7.getText().equals("O")){
+				winner="BLUE WINS";
+				return true;
+			}else if(boton2.getText().equals("O") && boton5.getText().equals("O") && boton8.getText().equals("O")){
+				winner="BLUE WINS";
+				return true;
+			}else if(boton3.getText().equals("O") && boton6.getText().equals("O") && boton9.getText().equals("O")){
+				winner="BLUE WINS";
+				return true;
+			}else if(boton1.getText().equals("O") && boton5.getText().equals("O") && boton9.getText().equals("O")){
+				winner="BLUE WINS";
+				return true;
+			}else if(boton3.getText().equals("O") && boton5.getText().equals("O") && boton7.getText().equals("O")){
+				winner="BLUE WINS";
+				return true;
+			}
+			
+			else {
+				return false;
+			}
+			
+			
+			
+		}
+		
+		
+	}
+	
+	public void gameOver () {
+		
+		boton1.setEnabled(false);
+		boton2.setEnabled(false);
+		boton3.setEnabled(false);
+		boton4.setEnabled(false);
+		boton5.setEnabled(false);
+		boton6.setEnabled(false);
+		boton7.setEnabled(false);
+		boton8.setEnabled(false);
+		boton9.setEnabled(false);
 		
 	}
 	
@@ -114,6 +204,11 @@ class LaminaPrincipal extends JPanel {
 			// TODO Auto-generated method stub
 			JButton boton = (JButton) e.getSource();
 			boton.setEnabled(false);
+
+			seleccion_j1 =new JButton [5];
+			seleccion_j2 =new JButton [5];
+			posicion_j1=0;
+			posicion_j2=0;
 			reseteaBotones();
 			
 		}
@@ -161,8 +256,13 @@ class LaminaPrincipal extends JPanel {
 		}
 		
 	}
+	JButton [] seleccion_j1 ;
+	JButton [] seleccion_j2 ;
+	String winner;
 	int turno;
 	int opciones;
+	int posicion_j1;
+	int posicion_j2;
 	JButton boton1,boton2,boton3,boton4,boton5,boton6,boton7,boton8,boton9,restart;
 	
 }
