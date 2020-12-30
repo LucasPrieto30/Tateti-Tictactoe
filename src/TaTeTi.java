@@ -35,7 +35,7 @@ class LaminaPrincipal extends JPanel {
 	
 	public LaminaPrincipal() {
 		
-		setBackground(Color.blue);
+		
 		JPanel lamina_juego =new JPanel();
 		JPanel lamina_restart=new JPanel();
 		setLayout(new BorderLayout());
@@ -97,7 +97,7 @@ class LaminaPrincipal extends JPanel {
 			}
 			turno++;
 			opciones--;
-			win();
+			
 			if (win()) {
 				boton5.setText(winner);
 				gameOver();
@@ -244,11 +244,9 @@ class LaminaPrincipal extends JPanel {
 		}
 		
 	}
-	String winner;
+
 	int turno;
 	int opciones;
-	int posicion_j1;
-	int posicion_j2;
 	JButton boton1,boton2,boton3,boton4,boton5,boton6,boton7,boton8,boton9,restart;
 	
 }
