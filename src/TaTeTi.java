@@ -97,7 +97,6 @@ class LaminaPrincipal extends JPanel {
 			}
 			turno++;
 			opciones--;
-			win();
 			if (win()) {
 				boton5.setText(winner);
 				gameOver();
