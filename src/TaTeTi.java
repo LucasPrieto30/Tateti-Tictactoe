@@ -40,6 +40,7 @@ class LaminaPrincipal extends JPanel {
 		JPanel lamina_restart=new JPanel();
 		setLayout(new BorderLayout());
 		
+
 		boton1= new JButton();
 		boton2= new JButton();
 		boton3= new JButton();
@@ -51,7 +52,9 @@ class LaminaPrincipal extends JPanel {
 		boton9= new JButton();
 		restart= new JButton("Restart");
 		restart.setEnabled(false);
-		
+		score_red=new JLabel("Red: "+wins_red);
+		score_blue=new JLabel("Blue: "+wins_blue);
+
 		boton1.addActionListener(new Seleccion());
 		boton2.addActionListener(new Seleccion());
 		boton3.addActionListener(new Seleccion());
@@ -73,7 +76,9 @@ class LaminaPrincipal extends JPanel {
 		lamina_juego.add(boton7);
 		lamina_juego.add(boton8);
 		lamina_juego.add(boton9);
+		lamina_restart.add(score_red);
 		lamina_restart.add(restart);
+		lamina_restart.add(score_blue);
 		add(lamina_restart,BorderLayout.SOUTH);
 		add(lamina_juego,BorderLayout.CENTER);
 		turno =0;
@@ -115,52 +120,84 @@ class LaminaPrincipal extends JPanel {
 			
 			if (boton1.getText().equals("X") && boton2.getText().equals("X") && boton3.getText().equals("X")) {
 				winner="RED WINS";
+				wins_red++;
+				score_red.setText("Red: "+wins_red);
 				return true;	
 			}else if(boton4.getText().equals("X") && boton5.getText().equals("X") && boton6.getText().equals("X")){
 				winner="RED WINS";
+				wins_red++;
+				score_red.setText("Red: "+wins_red);
 				return true;
 			}else if(boton7.getText().equals("X") && boton8.getText().equals("X") && boton9.getText().equals("X")){
 				winner="RED WINS";
+				wins_red++;
+				score_red.setText("Red: "+wins_red);
 				return true;
 			}else if(boton1.getText().equals("X") && boton4.getText().equals("X") && boton7.getText().equals("X")){
 				winner="RED WINS";
+				wins_red++;
+				score_red.setText("Red: "+wins_red);
 				return true;
 			}else if(boton2.getText().equals("X") && boton5.getText().equals("X") && boton8.getText().equals("X")){
 				winner="RED WINS";
+				wins_red++;
+				score_red.setText("Red: "+wins_red);
 				return true;
 			}else if(boton3.getText().equals("X") && boton6.getText().equals("X") && boton9.getText().equals("X")){
 				winner="RED WINS";
+				wins_red++;
+				score_red.setText("Red: "+wins_red);
 				return true;
 			}else if(boton1.getText().equals("X") && boton5.getText().equals("X") && boton9.getText().equals("X")){
 				winner="RED WINS";
+				wins_red++;
+				score_red.setText("Red: "+wins_red);
 				return true;
 			}else if(boton3.getText().equals("X") && boton5.getText().equals("X") && boton7.getText().equals("X")){
 				winner="RED WINS";
+				wins_red++;
+				score_red.setText("Red: "+wins_red);
 				return true;
 			
 			}else if (boton1.getText().equals("O") && boton2.getText().equals("O") && boton3.getText().equals("O")) {
 				winner="BLUE WINS";
+				wins_blue++;
+				score_blue.setText("Blue: "+wins_blue);
 				return true;
 			}else if(boton4.getText().equals("O") && boton5.getText().equals("O") && boton6.getText().equals("O")){
 				winner="BLUE WINS";
+				wins_blue++;
+				score_blue.setText("Blue: "+wins_blue);
 				return true;
 			}else if(boton7.getText().equals("O") && boton8.getText().equals("O") && boton9.getText().equals("O")){
 				winner="BLUE WINS";
+				wins_blue++;
+				score_blue.setText("Blue: "+wins_blue);
 				return true;
 			}else if(boton1.getText().equals("O") && boton4.getText().equals("O") && boton7.getText().equals("O")){
 				winner="BLUE WINS";
+				wins_blue++;
+				score_blue.setText("Blue: "+wins_blue);
 				return true;
 			}else if(boton2.getText().equals("O") && boton5.getText().equals("O") && boton8.getText().equals("O")){
 				winner="BLUE WINS";
+				wins_blue++;
+				score_blue.setText("Blue: "+wins_blue);
 				return true;
 			}else if(boton3.getText().equals("O") && boton6.getText().equals("O") && boton9.getText().equals("O")){
 				winner="BLUE WINS";
+				wins_blue++;
+				score_blue.setText("Blue: "+wins_blue);
 				return true;
 			}else if(boton1.getText().equals("O") && boton5.getText().equals("O") && boton9.getText().equals("O")){
 				winner="BLUE WINS";
+				wins_blue++;
+				score_blue.setText("Blue: "+wins_blue);
 				return true;
 			}else if(boton3.getText().equals("O") && boton5.getText().equals("O") && boton7.getText().equals("O")){
 				winner="BLUE WINS";
+				wins_blue++;
+				score_blue.setText("Blue: "+wins_blue);
 				return true;
 			}
 			
@@ -248,6 +285,9 @@ class LaminaPrincipal extends JPanel {
 	int turno;
 	int opciones;
 	JButton boton1,boton2,boton3,boton4,boton5,boton6,boton7,boton8,boton9,restart;
-	
+	JLabel score_red;
+	int wins_red=0;
+	JLabel score_blue;
+	int wins_blue=0;
 }
 
